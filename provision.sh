@@ -13,17 +13,20 @@ chmod 600 id_rsa
 # install puppet
 yum install -y http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
 yum install -y puppet
+yum install -y puppet-server
 
 # git clone provisioner
 cd /home/vagrant
-git clone https://github.com/gomesuit/provisioner_puppet.git
+git clone https://github.com/gomesuit/provisioner_puppet_cs.git
 
 # run puppet
-cd /home/vagrant/provisioner_puppet
-puppet apply testuser.pp
-puppet apply testdirectory.pp
+#cd /home/vagrant/provisioner_puppet
+#puppet apply testuser.pp
+#puppet apply testdirectory.pp
 
-rm -rf /etc/puppet/modules
-ln -s /home/vagrant/provisioner_puppet/modules /etc/puppet/
+#rm -rf /etc/puppet/modules
+#ln -s /home/vagrant/provisioner_puppet/modules /etc/puppet/
 
-puppet apply testmodule_template.pp
+#puppet apply testmodule_template.pp
+
+
