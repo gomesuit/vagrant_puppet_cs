@@ -29,4 +29,14 @@ git clone https://github.com/gomesuit/provisioner_puppet_cs.git
 
 #puppet apply testmodule_template.pp
 
+rm -rf /etc/puppet/puppet.conf
+ln -s /home/vagrant/provisioner_puppet_cs/puppet.conf /etc/puppet/
+rm -rf /etc/puppet/autosign.conf
+ln -s /home/vagrant/provisioner_puppet_cs/autosign.conf /etc/puppet/
 
+/etc/init.d/puppetmaster start
+
+rm -rf /etc/puppet/manifests
+ln -s /home/vagrant/provisioner_puppet_cs/manifests /etc/puppet/
+
+puppet apply /etc/puppet/manifests/site.pp --noop
